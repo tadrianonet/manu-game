@@ -14,7 +14,7 @@ Use Node 20.19+ e execute `npm ci`, depois `npm run dev -- --port 5173`. Abra ht
 
 ## Verificar e preparar publicação
 
-`npm test` verifica a progressão das nove etapas e o limite de três por animal. `npm run build` verifica TypeScript e gera `dist`. `npm run preview -- --port 4173` serve a versão de produção com o service worker. A PWA tem manifesto, ícones 192/512 e cache offline após carregar o jogo online. A instalação/offline precisa de conferência em dispositivo real.
+`npm test` verifica a progressão das nove etapas e o limite de três por animal. `npm run build` verifica TypeScript e gera `dist`. `npm run preview -- --port 4173` serve a versão de produção com o service worker. A PWA tem manifesto, ícones 192/512 e pré-cache de todos os arquivos do jogo na instalação do service worker. A instalação/offline precisa de conferência em dispositivo real.
 
 O fluxo `.github/workflows/pages.yml` testa e compila pushes e pull requests para `main`. Pushes para `main` publicam automaticamente no GitHub Pages; a execução manual também está disponível. Ao levar esta pasta para a raiz de um repositório, configure GitHub Pages para GitHub Actions e execute o fluxo. O base relativo permite hospedagem em subpastas. Nenhuma publicação foi feita.
 
@@ -34,3 +34,9 @@ Os cuidados desta fase são minijogos simples de três toques, com rótulos dist
 4. **A bolsa de resgate:** caminhe pelo jardim, recolha cinco materiais e desvie de duas poças. Sem cronômetro ou perda de vidas.
 
 Use **Escolher aventura** na abertura ou **Mapa** durante o jogo. No mapa, as teclas 1–4 escolhem a fase; nos desafios, 1–3 escolhem opções. Esc retorna ao mapa nas fases novas. As medalhas ficam salvas somente no navegador deste dispositivo; não são uma conta online. Todas as fases estão disponíveis, para brincar em qualquer ordem.
+
+## Instalar como aplicativo
+
+Abra https://tadrianonet.github.io/manu-game/ no navegador do dispositivo. No Android/Chrome, menu → Instalar e criar atalho → Instalar. No iPhone/iPad/Safari, Compartilhar → Adicionar à Tela de Início → Abrir como App da Web (quando disponível) → Adicionar.
+
+Para o offline, deixe a primeira visita online terminar. Se já havia uma versão anterior aberta, feche as abas do jogo e abra novamente para ativar a atualização. Os testes automatizados simulam instalação, cache e navegação offline; instalação real em Android/iOS ainda depende de validação no dispositivo.
