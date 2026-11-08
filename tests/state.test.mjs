@@ -1,0 +1,2 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {advance,finished,patients} from '../src/state.mjs';
+test('all nine care steps required; progress remains immutable and capped',()=>{let p={};assert.equal(finished(p),false);for(const pet of patients){for(let i=0;i<3;i++){const old={...p};const next=advance(p,pet.id);assert.deepEqual(p,old);p=next}assert.equal(advance(p,pet.id)[pet.id],3)}assert.equal(finished(p),true)});

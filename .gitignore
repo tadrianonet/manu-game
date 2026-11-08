@@ -1,0 +1,14 @@
+node_modules/
+dist/
+private-references/
+.env*
+.DS_Store
+playwright-report/
+test-results/
+
+# Local hosting metadata and preview captures
+.openai/
+.sites-*
+/conclusao.png
+/manu-interacao.png
+/mapa-aventuras.png

@@ -1,0 +1,3 @@
+export const patients=[{id:'ragnar',name:'Ragnar',need:'Uma patinha precisa de carinho.',steps:['Limpar','Examinar','Fazer curativo'],tip:'Passe a esponja nas três marquinhas.',color:0xe9c797},{id:'merida',name:'Mérida',need:'É hora do check-up da gatinha.',steps:['Escovar','Ouvir coração','Dar água'],tip:'Toque nos três nós para escovar o pelo.',color:0xe8b7bd},{id:'cronos',name:'Cronos',need:'Vamos devolver a energia do coelhinho.',steps:['Limpar','Examinar orelhas','Dar cenoura'],tip:'Limpe as três folhinhas do pelo.',color:0xc3d4b3}];
+export function advance(progress,id){return {...progress,[id]:Math.min(3,(progress[id]||0)+1)}}
+export function finished(progress){return patients.every(p=>progress[p.id]===3)}

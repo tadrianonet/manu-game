@@ -1,0 +1,4 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {checkSequence,melodies,meals,readBadges,distance} from '../src/challenges.mjs';
+test('memory rejects incorrect order, accepts prefixes, and requires full sequence',()=>{for(const s of melodies){assert.equal(checkSequence(s,s.slice(0,1)),'continue');assert.equal(checkSequence(s,s),'complete');assert.equal(checkSequence(s,[(s[0]+1)%3]),'retry')}});
+test('each animal has a different valid picnic answer',()=>{assert.equal(new Set(meals.map(m=>m.answer)).size,3);assert.ok(meals.every(m=>m.answer>=0&&m.answer<3))});
+test('saved badges tolerate corrupt data and reject invalid IDs',()=>{assert.deepEqual(readBadges('oops'),[]);assert.deepEqual(readBadges('{}'),[]);assert.deepEqual(readBadges('[1,2,2,4,9,"3",null]'),[1,2,4]);assert.equal(distance({x:0,y:0},{x:3,y:4}),5)});
